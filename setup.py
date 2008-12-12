@@ -15,7 +15,7 @@ def read(*rnames):
 
 setup(
     name='keas.profile',
-    version = '0.2.0dev',
+    version='0.1.0',
     author='Marius Gedminas and the Zope Community.',
     author_email="zope-dev@zope.org",
     description='WSGI Profiler for Python Paste',
@@ -36,7 +36,7 @@ setup(
         'Operating System :: OS Independent',
         'Topic :: Internet :: WWW/HTTP',
         'Framework :: Zope3'],
-    url = 'http://pypi.python.org/pypi/keas.profile',
+    url='http://pypi.python.org/pypi/keas.profile',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['keas'],
@@ -50,7 +50,7 @@ setup(
         ],
     include_package_data=True,
     zip_safe=False,
-    entry_points = """
+    entry_points="""
       [paste.filter_app_factory]
       profiler = keas.profile.profiler:make_profiler
       """
