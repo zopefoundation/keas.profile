@@ -98,14 +98,6 @@ class ProfileMiddleware(object):
             body += '<pre style="%s">%s\n%s</pre>' % (
                 self.style, cgi.escape(output), cgi.escape(output_callers))
             response.replace_header(headers, 'Content-Length', str(len(body)))
-            try:
-                import pyprof2calltree
-            except ImportError:
-                pass
-            else:
-                # Use kcachegrind to view the profile interactively.
-                pyprof2calltree.convert(profiler.getstats(),
-                                        self.log_filename + '.kgrind')
             return [body]
         finally:
             self.lock.release()

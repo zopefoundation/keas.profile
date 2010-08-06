@@ -16,11 +16,3 @@ to your paster configuration file and passing ``--app-name=profile`` to
 ``paster``.  When you access your web application, every page will have the
 profiler output appended to the end of the document body.
 
-
-Viewing profiles with KCacheGrind
----------------------------------
-
-KCacheGrind is a GUI application for digging through the profile data and
-visualizing call trees.  keas.profile uses pyprof2calltree to convert the
-profiler data into KCacheGrind format for your convenience.  To view it,
-open the log file (``profile.log.tmp.kgrind`` by default) in KCacheGrind.

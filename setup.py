@@ -46,7 +46,6 @@ setup(
     install_requires=[
         'setuptools',
         'paste',
-        'pyprof2calltree',
         ],
     include_package_data=True,
     zip_safe=False,
