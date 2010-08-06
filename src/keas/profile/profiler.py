@@ -34,7 +34,7 @@ class ProfileMiddleware(object):
 
     This is a fork of paste.debug.profile.ProfileMiddleware.  It uses
     cProfile instead of hotshot (which is buggy).  It doesn't cause the
-    truncate the profiler output to be truncated in the browser.  It sorts
+    profiler output to be truncated in the browser.  It sorts
     the stats by cumulative time rather than internal time.
 
     If the following bugs were fixed upstream, we could switch to paste.debug
@@ -44,13 +44,13 @@ class ProfileMiddleware(object):
         http://trac.pythonpaste.org/pythonpaste/ticket/311
         http://trac.pythonpaste.org/pythonpaste/ticket/312
 
-    However upstream says at leas one of those won't be fixed, and suggests
+    However upstream says at least one of those won't be fixed, and suggests
     we look into better-maintained WSGI profiler middleware products such as
     repoze.profile or Dozer.
     """
 
     style = ('clear: both; background-color: #ff9; color: #000; '
-             'border: 2px solid #000; padding: 5px;')
+             'border: 2px solid #000; padding: 5px; text-align: left;')
 
     def __init__(self, app, global_conf=None,
                  log_filename='profile.log.tmp',
