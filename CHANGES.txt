@@ -3,7 +3,7 @@ CHANGES
 =======
 
 
-0.2.0 (unreleased)
+0.2.0 (2010-08-07)
 ------------------
 
 - Remove pyprof2calltree support; looks like it's buggy (or incompatible with
