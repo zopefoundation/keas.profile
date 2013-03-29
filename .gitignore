@@ -6,3 +6,4 @@ develop-eggs/
 *.pyc
 __pycache__
 .tox/
+coverage/

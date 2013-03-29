@@ -13,7 +13,7 @@ def read(*rnames):
 
 setup(
     name='keas.profile',
-    version='0.2.1dev',
+    version='0.3.0dev',
     author='Marius Gedminas and the Zope Community.',
     author_email="zope-dev@zope.org",
     description='WSGI Profiler for Python Paste',
@@ -31,6 +31,8 @@ setup(
         'License :: OSI Approved :: Zope Public License',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Natural Language :: English',
@@ -45,8 +47,11 @@ setup(
     test_suite='keas.profile.tests.test_suite',
     install_requires=[
         'setuptools',
-        'paste',
+        'WebOb',
     ],
+    extras_require=dict(
+        test=[],
+    ),
     include_package_data=True,
     zip_safe=False,
     entry_points={

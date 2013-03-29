@@ -3,10 +3,12 @@ CHANGES
 =======
 
 
-0.2.1 (unreleased)
+0.3.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Depend on WebOb instead of Paste.
+
+- Add support for Python 3.
 
 
 0.2.0 (2010-08-07)

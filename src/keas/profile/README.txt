@@ -10,11 +10,14 @@ bottom of each page.
 Lets start with a simple "hello world" app to profile
 
   >>> def simple_app(environ, start_response):
+  ...     if environ['PATH_INFO'] == '/image.png':
+  ...         start_response('200 OK', [('content-type', 'image/png')])
+  ...         return [b"pretend png data"]
   ...     start_response('200 OK', [('content-type', 'text/html')])
-  ...     return "hello world!"
+  ...     return [b"hello world!"]
   ...
   >>> def start_response(status, headers, exc_info=None):
-  ...   pass
+  ...     pass
 
 we can now generate a middleware profiler for the app
 
@@ -26,7 +29,7 @@ and call the app to profile it
   ...            'PATH_INFO': '/' ,
   ...            'REQUEST_METHOD': 'GET'}
 
-  >>> print(''.join(profiled_app(environ, start_response)))
+  >>> print(b''.join(profiled_app(environ, start_response)).decode())
   hello world!<pre ...> ... function calls in ... seconds
   <BLANKLINE>
      Ordered by: cumulative time, call count
@@ -35,3 +38,13 @@ and call the app to profile it
 
 The profiler output is appended to the end of the response body if it returns
 HTML.  (Yes, this violates the HTML standard, but seems to work in practice.)
+
+The profiler is smart enough to leave non-HTML responses untouched:
+
+  >>> environ = {'HTTP_DATE': utils.formatdate(),
+  ...            'PATH_INFO': '/image.png' ,
+  ...            'REQUEST_METHOD': 'GET'}
+
+  >>> print(b''.join(profiled_app(environ, start_response)).decode())
+  pretend png data
+
