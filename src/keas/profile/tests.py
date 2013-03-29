@@ -11,17 +11,9 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ###############################################################################
-"""Test Setup.
-
-$Id$
-"""
-import unittest
-from zope.testing import doctestunit, doctest
+"""Test Setup."""
+import doctest
 
 def test_suite():
-    return unittest.TestSuite((
-        doctestunit.DocFileSuite(
-            'README.txt',
-            optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS,
-            ),
-        ))
+    optionflags = doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS
+    return doctest.DocFileSuite('README.txt', optionflags=optionflags)

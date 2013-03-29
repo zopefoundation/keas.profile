@@ -26,9 +26,12 @@ and call the app to profile it
   ...            'PATH_INFO': '/' ,
   ...            'REQUEST_METHOD': 'GET'}
 
-  >>> profiled_app(environ, start_response)
-  ['hello world!... function calls in ... CPU seconds...
-  ...Ordered by: cumulative time, call count...]
+  >>> print(''.join(profiled_app(environ, start_response)))
+  hello world!<pre ...> ... function calls in ... seconds
+  <BLANKLINE>
+     Ordered by: cumulative time, call count
+  ...
+  </pre>
 
 The profiler output is appended to the end of the response body if it returns
 HTML.  (Yes, this violates the HTML standard, but seems to work in practice.)

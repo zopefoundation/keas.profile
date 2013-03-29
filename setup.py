@@ -3,19 +3,17 @@
 # Copyright 2008 by Keas, Inc., San Francisco, CA
 #
 ###############################################################################
-"""Package setup.
-
-$Id$
-"""
+"""Package setup."""
 import os
 from setuptools import setup, find_packages
 
 def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+    with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
+        return f.read()
 
 setup(
     name='keas.profile',
-    version = '0.2.1dev',
+    version='0.2.1dev',
     author='Marius Gedminas and the Zope Community.',
     author_email="zope-dev@zope.org",
     description='WSGI Profiler for Python Paste',
@@ -23,7 +21,7 @@ setup(
         read('README.txt')
         + '\n\n' +
         read('CHANGES.txt')
-        ),
+    ),
     license="ZPL 2.1",
     keywords="zope3 profile paste wsgi",
     classifiers=[
@@ -31,26 +29,29 @@ setup(
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Zope Public License',
-        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy',
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Topic :: Internet :: WWW/HTTP',
-        'Framework :: Zope3'],
+        'Framework :: Zope3',
+    ],
     url='http://pypi.python.org/pypi/keas.profile',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['keas'],
-    extras_require=dict(
-        test=['zope.testing',],
-        ),
+    test_suite='keas.profile.tests.test_suite',
     install_requires=[
         'setuptools',
         'paste',
-        ],
+    ],
     include_package_data=True,
     zip_safe=False,
-    entry_points="""
-      [paste.filter_app_factory]
-      profiler = keas.profile.profiler:make_profiler
-      """
-    )
+    entry_points={
+        'paste.filter_app_factory': [
+            "profiler = keas.profile.profiler:make_profiler",
+        ],
+    },
+)
