@@ -7,7 +7,7 @@ python:
     - pypy
 install:
     - python bootstrap.py
-    - bin/buildout
+    - bin/buildout -N
 script:
     - bin/test -v1
 notifications:
