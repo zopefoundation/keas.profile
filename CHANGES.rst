@@ -3,7 +3,7 @@ CHANGES
 =======
 
 
-0.3.0 (unreleased)
+0.3.0 (2013-03-29)
 ------------------
 
 - Depend on WebOb instead of Paste.
