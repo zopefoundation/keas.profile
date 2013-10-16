@@ -6,7 +6,9 @@ python:
     - 3.3
     - pypy
 install:
-    - python bootstrap.py
+    - virtualenv env
+    - env/bin/pip install -U setuptools
+    - env/bin/python bootstrap.py
     - bin/buildout -N
 script:
     - bin/test -v1
