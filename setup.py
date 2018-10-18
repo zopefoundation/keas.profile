@@ -38,7 +38,7 @@ setup(
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Topic :: Internet :: WWW/HTTP',
-        'Framework :: Zope3',
+        'Framework :: Zope :: 3',
     ],
     url='http://pypi.python.org/pypi/keas.profile',
     packages=find_packages('src'),
