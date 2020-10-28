@@ -18,5 +18,5 @@ profiler output appended to the end of the document body.
 
 |buildstatus|_
 
-.. |buildstatus| image:: https://api.travis-ci.org/zopefoundation/keas.profile.png?branch=master
-.. _buildstatus: https://travis-ci.org/zopefoundation/keas.profile
+.. |buildstatus| image:: https://api.travis-ci.com/zopefoundation/keas.profile.png?branch=master
+.. _buildstatus: https://travis-ci.com/zopefoundation/keas.profile
