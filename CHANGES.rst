@@ -6,7 +6,7 @@ CHANGES
 0.3.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix deprecation warning.
 
 
 0.3.0 (2013-03-29)

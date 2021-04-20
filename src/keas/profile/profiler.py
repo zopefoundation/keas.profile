@@ -17,7 +17,7 @@
 ###############################################################################
 """WSGI Profiler Middleware."""
 
-import cgi
+import html
 import threading
 import cProfile
 import pstats
@@ -83,7 +83,7 @@ class ProfileMiddleware(object):
             output_callers = stream.getvalue()
             stream.close()
             extra = '<pre style="%s">%s\n%s</pre>' % (
-                self.style, cgi.escape(output), cgi.escape(output_callers))
+                self.style, html.escape(output), html.escape(output_callers))
             response.body += extra.encode('ascii', 'xmlcharrefreplace')
             return response(environ, start_response)
         finally:
