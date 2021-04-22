@@ -17,15 +17,16 @@
 ###############################################################################
 """WSGI Profiler Middleware."""
 
-import cgi
 import threading
 import cProfile
 import pstats
 
 try:
     from cStringIO import StringIO
+    from cgi import escape
 except ImportError:
     from io import StringIO
+    from html import escape
 
 from webob import Request
 
@@ -83,7 +84,7 @@ class ProfileMiddleware(object):
             output_callers = stream.getvalue()
             stream.close()
             extra = '<pre style="%s">%s\n%s</pre>' % (
-                self.style, cgi.escape(output), cgi.escape(output_callers))
+                self.style, escape(output), escape(output_callers))
             response.body += extra.encode('ascii', 'xmlcharrefreplace')
             return response(environ, start_response)
         finally:
